@@ -1,14 +1,19 @@
 name: hello-world
 on: push
 jobs:
-  my-job:
+  Build:
     runs-on: ubuntu-latest
     container: gradle:6-jdk11
 
     steps:
-      - name: Clone-down
+      - name: Clone Down
         uses: actions/checkout@v3
-      - name: Build-Application  
+      - name: Build Application  
         run: ci/build-app.sh 
-      - name: min-unit-test
+      - name: Min Unit Test
         run: chmod +x ci/unit-test-app.sh && ci/unit-test-app.sh
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: my artifact
+          path: .
