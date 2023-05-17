@@ -21,7 +21,7 @@ jobs:
       - name: Upload Artifact
         uses: actions/upload-artifact@v3
         with:
-          name: my artifact
+          name: code
           path: .
   Docker-Build-Image:
     runs-on: ubuntu-latest
